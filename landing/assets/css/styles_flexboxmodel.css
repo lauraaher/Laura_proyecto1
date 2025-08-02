@@ -1,0 +1,110 @@
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.borde{
+    border: 1px solid gray;
+}
+
+.contenedor{
+    width: 95%;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    height: 70px;
+    display: flex;
+    /*flex-direction: row;
+    flex-wrap: nowrap;*/
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+}
+.logo{
+    width: 20%;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+.menu{
+    width: 65%;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+.ingreso{
+    width: 15%;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+header, section{
+    height: 500px;
+}
+.portafolio{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.port-izq{
+    flex: 1;
+}
+.port-cnt{
+    flex: 1;
+}
+.por-der{
+    flex: 1;
+}
+
+.nosotros{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    height: 200px;
+}
+.subt{
+    flex: 2;
+}
+.img{
+    flex: 1;
+}
+.vac1{
+    flex: 2;
+}
+
+.nosotros1{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 200px;
+    
+}
+.vac2{
+    flex: 2;
+}
+.img2{
+    flex: 1;
+}
+.sub2{
+    flex: 2;
+}
+.nosotros2{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    height: 200px;
+}
+.subt3{
+    flex: 2;
+}
+.img3{
+    flex: 1;
+}
+.vac3{
+    flex: 2;
+}
+
