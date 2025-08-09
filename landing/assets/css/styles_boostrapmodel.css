@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+nav, footer, .titulo{
+    height: 70px;
+}
+.logo{
+    /*background: rgb(255,0,0);*/ /*sistema rgb, los colores van de 0 a 255*/
+    background: #f00; /*sistema hexadecimal, los colores van de 0 a f*/
+}
+.menu{
+    /*background: rgb(0,255,0);*/
+    background: #0f0;
+}
+.ingreso{
+    /*background: rgb(0,0,255);*/
+    background: #00f;
+}
+header, section{
+    height: 450px;
+}
