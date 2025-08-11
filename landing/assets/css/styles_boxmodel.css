@@ -1,96 +1,130 @@
-* {
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-/* Clase general para poner bordes a todo */
-.borde {
-    border: 1px solid rgb(0, 0, 0);
+.borde{
+    border: 1px solid gray;
 }
 
-/* Contenedor */
-.contenedor {
-    width: 100%;
-    background: white;
+.contenedor{
+    width: 95%;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-/* FILA SUPERIOR */
-.fila-superior {
-    width: 100%;
-    height: 80px;
+/* NAV */
+nav{
+    height: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
 }
-.logo, .menu, .ingreso {
-    float: left;
-    height: 100%;
-}
-.logo { 
+.logo{
     width: 20%;
-    background: #463B8C; 
+    background: #463B8C;
 }
-.menu { 
-    width: 60%; 
+.menu{
+    width: 65%;
     background: #B784D9;
 }
-.ingreso { 
-    width: 20%;
+.ingreso{
+    width: 15%;
     background: #D99AC8;
- }
+}
 
-/* ENCABEZADO */
-.encabezado {
-    width: 100%;
-    height: 400px;
-    background: #e794d1;
+/* HEADER y SECTION */
+header{
+    height: 500px;
+    background: #E794D1;
+}
+section{
+    height: 500px;
+    background: #693C5D;
 }
 
 /* PORTAFOLIO */
-.titulo-portafolio {
-    width: 100%;
-    height: 40px;
-    background: #693c5d;
+.portafolio{
+    display: flex;
+    flex-flow: row nowrap;
+    background: #BD92B2;
+}
+.port-izq{
+    flex: 1;
+    background: #CFA5C1;
+}
+.port-cnt{
+    flex: 1;
+    background: #E5BED9;
+}
+.por-der{
+    flex: 1;
+    background: #CFA5C1;
 }
 
-/* FILA DE TRES COLUMNAS */
-.fila-tres {
-    width: 100%;
-    height: 300px;
-    background: #bd92b2;
-}
-.col {
-    float: left;
-    width: 33.33%;
-    height: 100%;
-}
-
-/* SOBRE NOSOTROS */
-.sobre-nosotros {
-    width: 100%;
-    height: 60px;
-    background: #693c5d;
-}
-
-/* GRID 3x3 */
-.grid {
-    width: 100%;
-}
-.fila-grid {
-    width: 100%;
+/* NOSOTROS fila 1 */
+.nosotros{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
     height: 200px;
+    background: #F7D1E0;
 }
-.cel {
-    float: left;
-    height: 100%;
+.subt{
+    flex: 2;
+    background: #F27D52;
 }
-.left { 
-    width: 40%; 
-    background:#F27D52;
+.img{
+    flex: 1;
+    background: #F25050;
 }
-.center { 
-    width: 20%;
-    background:#F25050;
- }
-.right { 
-    width: 40%;
-    background:#F27D52;
- }
+.vac1{
+    flex: 2;
+    background: #F27D52;
+}
+
+/* NOSOTROS fila 2 */
+.nosotros1{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 200px;
+    background: #F7D1E0;
+}
+.vac2{
+    flex: 2;
+    background: #F27D52;
+}
+.img2{
+    flex: 1;
+    background: #F25050;
+}
+.sub2{
+    flex: 2;
+    background: #F27D52;
+}
+
+/* NOSOTROS fila 3 */
+.nosotros2{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    height: 200px;
+    background: #F7D1E0;
+}
+.subt3{
+    flex: 2;
+    background: #F27D52;
+}
+.img3{
+    flex: 1;
+    background: #F25050;
+}
+.vac3{
+    flex: 2;
+    background: #F27D52;
+}

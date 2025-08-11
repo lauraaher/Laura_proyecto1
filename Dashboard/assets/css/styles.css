@@ -4,80 +4,75 @@
     margin: 0;
 }
 
+/* Clase general para bordes */
+.borde {
+    border: 1px solid rgb(0, 0, 0);
+}
+
 .contenedor {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
     background: white;
 }
 
-
+/* HEADER */
 .header {
-    width: 100%;
-    height: 6%;
-    border: 1px solid red;
+    flex: 0 0 6%;
     background: #463B8C;
-
 }
 
+/* ZONA PRINCIPAL */
+.main {
+    display: flex;
+    flex: 1 0 88%;
+}
 
+/* SIDEBAR */
 .sidebar {
-    width: 18%;
-    height: 88%;
-    float: left;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 18%;
     background: #D99AC8;
-
 }
 
 .perfil {
-    width: 100%;
-    height: 10%;
-    border: 1px solid red;
+    flex: 0 0 10%;
     background: #837bb8;
 }
 
 .seccion {
-    width: 100%;
-    height: 6%;
-    border: 1px solid red;
+    flex: 0 0 6%;
     background: #F25050;
 }
 
 .item {
-    width: 100%;
-    height: 5%;
-    border: 1px solid red;
+    flex: 0 0 5%;
     background: #F27D52;
 }
 
-
+/* CONTENIDO */
 .contenido {
-    width: 82%;
-    height: 88%;
-    float: left;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 82%;
     background: #D99AC8;
 }
 
 .titulo {
-    width: 100%;
-    height: 8%;
-    border: 1px solid red;
+    flex: 0 0 8%;
     background: #837bb8;
 }
 
 .principal {
-    width: 40%;
-    height: 40%;
-    border: 1px solid red;
+    flex: 0 0 40%;
     margin: 20px;
     background: #837bb8;
 }
 
+/* FOOTER */
 .footer {
-    width: 100%;
-    height: 6%;
-    border: 1px solid red;
-    float: left;
+    flex: 0 0 6%;
     background: #463B8C;
 }

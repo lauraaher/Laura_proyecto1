@@ -1,11 +1,11 @@
-{
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
 .borde{
-    border: 1px solid rgb(1, 1, 1);
+    border: 1px solid gray;
 }
 
 .contenedor{
@@ -15,96 +15,71 @@
     display: flex;
     flex-direction: column;
 }
+
+/* NAV */
 nav{
-    height: 70px;
     display: flex;
-    /*flex-direction: row;
-    flex-wrap: nowrap;*/
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    
+    flex: 0 0 80px; /* alto igual al modelo box */
 }
 .logo{
-    width: 20%;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
+    flex: 0 0 20%;
+    background: #463B8C;
 }
 .menu{
-    width: 65%;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
+    flex: 0 0 60%;
+    background: #B784D9;
 }
 .ingreso{
-    width: 15%;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
+    flex: 0 0 20%;
+    background: #D99AC8;
 }
-header, section{
-    height: 500px;
+
+/* ENCABEZADO */
+header{
+    flex: 0 0 400px;
+    background: #E794D1;
 }
+
+/* TITULO PORTAFOLIO */
+.titulo-portafolio{
+    flex: 0 0 40px;
+    background: #693C5D;
+}
+
+/* FILA DE 3 COLUMNAS */
 .portafolio{
     display: flex;
-    flex-flow: row nowrap;
+    flex: 0 0 300px;
+    background: #BD92B2;
 }
-.port-izq{
-    flex: 1;
-}
-.port-cnt{
-    flex: 1;
-}
-.por-der{
+.port-izq, .port-cnt, .por-der{
     flex: 1;
 }
 
-.nosotros{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    height: 200px;
-}
-.subt{
-    flex: 2;
-}
-.img{
-    flex: 1;
-}
-.vac1{
-    flex: 2;
+/* SOBRE NOSOTROS */
+.sobre-nosotros{
+    flex: 0 0 60px;
+    background: #693C5D;
 }
 
-.nosotros1{
+/* GRID 3x3 */
+.grid{
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    height: 200px;
-    
+    flex-direction: column;
 }
-.vac2{
-    flex: 2;
-}
-.img2{
-    flex: 1;
-}
-.sub2{
-    flex: 2;
-}
-.nosotros2{
+.fila-grid{
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    height: 200px;
+    flex: 0 0 200px;
 }
-.subt3{
-    flex: 2;
+.left{
+    flex: 0 0 40%;
+    background: #F27D52;
 }
-.img3{
-    flex: 1;
+.center{
+    flex: 0 0 20%;
+    background: #F25050;
 }
-.vac3{
-    flex: 2;
+.right{
+    flex: 0 0 40%;
+    background: #F27D52;
 }
-
