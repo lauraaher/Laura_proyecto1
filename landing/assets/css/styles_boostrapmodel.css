@@ -1,24 +1,73 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-nav, footer, .titulo{
-    height: 70px;
+/* Contenedor general */
+.contenedor {
+    width: 100%;
+    background: white;
 }
-.logo{
-    /*background: rgb(255,0,0);*/ /*sistema rgb, los colores van de 0 a 255*/
-    background: #f00; /*sistema hexadecimal, los colores van de 0 a f*/
+
+/* Fila superior */
+.fila-superior {
+    width: 100%;
+    height: 40px;
 }
-.menu{
-    /*background: rgb(0,255,0);*/
-    background: #0f0;
+
+.logo, .menu, .ingreso {
+    float: left;
+    border: 1px solid black;
+    height: 100%;
 }
-.ingreso{
-    /*background: rgb(0,0,255);*/
-    background: #00f;
+
+.logo {
+    width: 20%;
 }
-header, section{
-    height: 450px;
+.menu {
+    width: 60%;
+}
+.ingreso {
+    width: 20%;
+}
+
+/* Encabezado */
+.encabezado {
+    width: 100%;
+    height: 120px;
+    border: 1px solid black;
+}
+
+/* Título portafolio */
+.titulo-portafolio {
+    width: 100%;
+    height: 30px;
+    border: 1px solid black;
+}
+
+/* Fila de tres columnas */
+.fila-tres {
+    width: 100%;
+    height: 200px;
+}
+
+.col {
+    float: left;
+    width: 33.33%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+/* Grid 3x3 */
+.grid {
+    width: 100%;
+    height: 450px; /* 3 filas de 150px */
+}
+
+.celda {
+    float: left;
+    width: 33.33%;
+    height: 150px;
+    border: 1px solid black;
 }

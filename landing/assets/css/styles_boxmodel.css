@@ -1,67 +1,96 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-.borde{
-    border: 2px solid brown;
+/* Clase general para poner bordes a todo */
+.borde {
+    border: 1px solid rgb(0, 0, 0);
 }
-.titulo{
-    height: 70px;
-}
-.contenedor{
+
+/* Contenedor */
+.contenedor {
     width: 100%;
-    max-width: 1280px;
-    margin: auto;
+    background: white;
 }
-nav{
-    height: 70px;
+
+/* FILA SUPERIOR */
+.fila-superior {
+    width: 100%;
+    height: 80px;
 }
-.logo{
-    width: 15%;
-    height: 100%;
+.logo, .menu, .ingreso {
     float: left;
-}
-.menu{
-    width: 65%;
     height: 100%;
-    float: left;
 }
-.ingreso{
+.logo { 
     width: 20%;
-    height: 100%;
-    float: left;
+    background: #463B8C; 
 }
-header, section{
-    height: 500px;
+.menu { 
+    width: 60%; 
+    background: #B784D9;
 }
-.portafolio{
+.ingreso { 
+    width: 20%;
+    background: #D99AC8;
+ }
+
+/* ENCABEZADO */
+.encabezado {
     width: 100%;
+    height: 400px;
+    background: #e794d1;
 }
-.port-izq,
-.port-cnt,
-.port-der{
+
+/* PORTAFOLIO */
+.titulo-portafolio {
+    width: 100%;
+    height: 40px;
+    background: #693c5d;
+}
+
+/* FILA DE TRES COLUMNAS */
+.fila-tres {
+    width: 100%;
+    height: 300px;
+    background: #bd92b2;
+}
+.col {
+    float: left;
     width: 33.33%;
     height: 100%;
-    float: left;
 }
-.nosotros{
-    height: 600px;
+
+/* SOBRE NOSOTROS */
+.sobre-nosotros {
+    width: 100%;
+    height: 60px;
+    background: #693c5d;
+}
+
+/* GRID 3x3 */
+.grid {
     width: 100%;
 }
-
-.subt, .vac1, .vac2, .sub2, .subt3, .vac3{
-    width: 40%;
-    height: 33.33%;
-    float: left;
+.fila-grid {
+    width: 100%;
+    height: 200px;
 }
-
-.img, .img2, .img3{
+.cel {
+    float: left;
+    height: 100%;
+}
+.left { 
+    width: 40%; 
+    background:#F27D52;
+}
+.center { 
     width: 20%;
-    height: 33.33%;
-    float: left;
-}
-footer{
-    height: 70px;
-}
+    background:#F25050;
+ }
+.right { 
+    width: 40%;
+    background:#F27D52;
+ }
