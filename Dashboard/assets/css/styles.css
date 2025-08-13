@@ -1,78 +1,54 @@
-* {
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-/* Clase general para bordes */
-.borde {
+.border {
     border: 1px solid rgb(0, 0, 0);
 }
 
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    background: white;
-}
-
-/* HEADER */
+/* Colores y alturas */
 .header {
-    flex: 0 0 6%;
     background: #463B8C;
+    height: 6vh;
 }
 
-/* ZONA PRINCIPAL */
-.main {
-    display: flex;
-    flex: 1 0 88%;
-}
-
-/* SIDEBAR */
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 18%;
     background: #D99AC8;
 }
 
 .perfil {
-    flex: 0 0 10%;
     background: #837bb8;
+    height: 10vh;
 }
 
 .seccion {
-    flex: 0 0 6%;
     background: #F25050;
+    height: 6vh;
 }
 
 .item {
-    flex: 0 0 5%;
     background: #F27D52;
+    height: 5vh;
 }
 
-/* CONTENIDO */
 .contenido {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 82%;
     background: #D99AC8;
 }
 
 .titulo {
-    flex: 0 0 8%;
     background: #837bb8;
+    height: 8vh;
 }
 
 .principal {
-    flex: 0 0 40%;
-    margin: 20px;
     background: #837bb8;
+    margin: 20px;
+    height: 40vh;
 }
 
-/* FOOTER */
 .footer {
-    flex: 0 0 6%;
     background: #463B8C;
+    height: 6vh;
 }
