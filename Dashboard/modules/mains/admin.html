@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Bootstrap</title>
+    <title>Panel de Administración - Atletismo Élite</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/Dashboard/assets/css/styles.css">
 </head>
 <body>
@@ -12,39 +16,353 @@
         
         <!-- HEADER -->
         <div class="row">
-            <div class="border col-12 header">Tab 1</div>
+            <div class="col-12 header d-flex align-items-center justify-content-between px-4">
+                <div class="header-left d-flex align-items-center">
+                    <i class="fas fa-running me-3"></i>
+                    <h4 class="mb-0">Panel de Administración - Atletismo Élite</h4>
+                </div>
+                <div class="header-right d-flex align-items-center">
+                    <div class="notification-bell me-3">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="user-info d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Admin" class="user-avatar me-2">
+                        <span class="user-name">Admin</span>
+                        <button class="btn btn-logout ms-3" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- MAIN -->
         <div class="row flex-grow-1">
             <!-- SIDEBAR -->
-            <div class="border col-sm-12 col-md-3 col-lg-2 sidebar p-0">
-                <div class="border col-12 perfil">Perfil</div>
+            <div class="col-sm-12 col-md-3 col-lg-2 sidebar p-0">
+                <div class="col-12 perfil d-flex flex-column align-items-center justify-content-center">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Perfil" class="profile-image mb-2">
+                    <h6 class="profile-name mb-1">Administrador</h6>
+                    <small class="profile-role">Super Admin</small>
+                </div>
 
-                <div class="border col-12 seccion">Sección 1</div>
-                <div class="border col-12 item">Item 1</div>
-                <div class="border col-12 item">Item 2</div>
-                <div class="border col-12 item">Item 3</div>
+                <div class="sidebar-menu">
+                    <div class="col-12 seccion active" onclick="showSection('TABLERO')">
+                        <i class="fas fa-tachometer-alt me-2"></i>TABLERO
+                    </div>
+                    
+                    <div class="col-12 item" onclick="showSection('atletas')">
+                        <i class="fas fa-users me-2"></i>Atletas
+                    </div>
+                    <div class="col-12 item" onclick="showSection('entrenamientos')">
+                        <i class="fas fa-dumbbell me-2"></i>Entrenamientos
+                    </div>
+                    <div class="col-12 item" onclick="showSection('competencias')">
+                        <i class="fas fa-trophy me-2"></i>Competencias
+                    </div>
 
-                <div class="border col-12 seccion">Sección 2</div>
-                <div class="border col-12 item">Item 1</div>
-                <div class="border col-12 item">Item 2</div>
+                    <div class="col-12 seccion" onclick="toggleSubmenu('reportes')">
+                        <i class="fas fa-chart-bar me-2"></i>Reportes
+                        <i class="fas fa-chevron-down ms-auto toggle-icon" id="reportes-icon"></i>
+                    </div>
+                    <div class="submenu" id="reportes-submenu">
+                        <div class="col-12 item submenu-item" onclick="showSection('rendimiento')">
+                            <i class="fas fa-chart-line me-2"></i>Rendimiento
+                        </div>
+                        <div class="col-12 item submenu-item" onclick="showSection('asistencia')">
+                            <i class="fas fa-calendar-check me-2"></i>Asistencia
+                        </div>
+                    </div>
+
+                    <div class="col-12 seccion" onclick="toggleSubmenu('configuracion')">
+                        <i class="fas fa-cog me-2"></i>Configuración
+                        <i class="fas fa-chevron-down ms-auto toggle-icon" id="configuracion-icon"></i>
+                    </div>
+                    <div class="submenu" id="configuracion-submenu">
+                        <div class="col-12 item submenu-item" onclick="showSection('usuarios')">
+                            <i class="fas fa-user-cog me-2"></i>Usuarios
+                        </div>
+                        <div class="col-12 item submenu-item" onclick="showSection('sistema')">
+                            <i class="fas fa-server me-2"></i>Sistema
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- CONTENIDO -->
-            <div class="border col-sm-12 col-md-9 col-lg-10 contenido p-0">
-                <div class="border col-12 titulo">TÍTULO</div>
-                <div class="border col-12 principal">Contenido principal aquí</div>
+            <div class="col-sm-12 col-md-9 col-lg-10 contenido p-0">
+                <div class="col-12 titulo d-flex align-items-center justify-content-between px-4">
+                    <h2 id="section-title">
+                        <i class="fas fa-tachometer-alt me-3"></i>TABLERO
+                    </h2>
+                    <div class="title-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Nuevo
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-12 principal p-4" id="main-content">
+                    <!-- DASHBOARD CONTENT -->
+                    <div id="dashboard-content">
+                        <div class="row mb-4">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stats-info">
+                                        <h3>156</h3>
+                                        <p>Atletas Activos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-dumbbell"></i>
+                                    </div>
+                                    <div class="stats-info">
+                                        <h3>24</h3>
+                                        <p>Entrenamientos/Semana</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="stats-info">
+                                        <h3>42</h3>
+                                        <p>Medallas Este Año</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="stats-info">
+                                        <h3>8</h3>
+                                        <p>Eventos Próximos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="dashboard-widget">
+                                    <h5><i class="fas fa-chart-line me-2"></i>Rendimiento Mensual</h5>
+                                    <div class="chart-placeholder">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Gráfico de rendimiento" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="dashboard-widget">
+                                    <h5><i class="fas fa-calendar-alt me-2"></i>Próximos Eventos</h5>
+                                    <div class="events-list">
+                                        <div class="event-item">
+                                            <div class="event-date">
+                                                <span class="day">15</span>
+                                                <span class="month">Sep</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h6>Campeonato Regional</h6>
+                                                <p>Pista y Campo</p>
+                                            </div>
+                                        </div>
+                                        <div class="event-item">
+                                            <div class="event-date">
+                                                <span class="day">22</span>
+                                                <span class="month">Sep</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h6>Evaluación Mensual</h6>
+                                                <p>Todos los atletas</p>
+                                            </div>
+                                        </div>
+                                        <div class="event-item">
+                                            <div class="event-date">
+                                                <span class="day">05</span>
+                                                <span class="month">Oct</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h6>Maratón de la Ciudad</h6>
+                                                <p>Fondo y medio fondo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ATLETAS CONTENT -->
+                    <div id="atletas-content" style="display: none;">
+                        <div class="data-table-widget">
+                            <h5><i class="fas fa-users me-2"></i>Lista de Atletas</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Foto</th>
+                                            <th>Nombre</th>
+                                            <th>Categoría</th>
+                                            <th>Especialidad</th>
+                                            <th>Mejor Marca</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Atleta" class="athlete-photo"></td>
+                                            <td>Carlos Rodríguez</td>
+                                            <td>Juvenil</td>
+                                            <td>Velocidad</td>
+                                            <td>10.85s (100m)</td>
+                                            <td><span class="status-active">Activo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Atleta" class="athlete-photo"></td>
+                                            <td>María González</td>
+                                            <td>Senior</td>
+                                            <td>Salto Alto</td>
+                                            <td>1.75m</td>
+                                            <td><span class="status-active">Activo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Atleta" class="athlete-photo"></td>
+                                            <td>Diego Martínez</td>
+                                            <td>Master</td>
+                                            <td>Maratón</td>
+                                            <td>2:35:42</td>
+                                            <td><span class="status-inactive">Lesionado</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ENTRENAMIENTOS CONTENT -->
+                    <div id="entrenamientos-content" style="display: none;">
+                        <div class="training-schedule-widget">
+                            <h5><i class="fas fa-dumbbell me-2"></i>Programación de Entrenamientos</h5>
+                            <div class="schedule-grid">
+                                <div class="schedule-day">
+                                    <h6>Lunes</h6>
+                                    <div class="training-block">
+                                        <span class="time">06:00 - 08:00</span>
+                                        <span class="activity">Velocidad - Pista</span>
+                                        <span class="coach">Coach: Juan Pérez</span>
+                                    </div>
+                                    <div class="training-block">
+                                        <span class="time">16:00 - 18:00</span>
+                                        <span class="activity">Saltos - Campo</span>
+                                        <span class="coach">Coach: Ana López</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-day">
+                                    <h6>Martes</h6>
+                                    <div class="training-block">
+                                        <span class="time">06:00 - 08:00</span>
+                                        <span class="activity">Resistencia - Circuito</span>
+                                        <span class="coach">Coach: Carlos Ruiz</span>
+                                    </div>
+                                    <div class="training-block">
+                                        <span class="time">16:00 - 18:00</span>
+                                        <span class="activity">Técnica - Pista</span>
+                                        <span class="coach">Coach: María García</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- FOOTER -->
-        <div class="row">
-            <div class="border col-12 footer">Barra inferior</div>
-        </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/landing/assets/js/scripts.js"></script>
+    <script>
+        function showSection(section) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('[id$="-content"]').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remover clase active de todos los elementos del menú
+            document.querySelectorAll('.seccion, .item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Mostrar el contenido seleccionado
+            const contentElement = document.getElementById(section + '-content');
+            if (contentElement) {
+                contentElement.style.display = 'block';
+            } else {
+                // Si no existe contenido específico, mostrar dashboard
+                document.getElementById('dashboard-content').style.display = 'block';
+            }
+            
+            // Activar el elemento del menú clickeado
+            event.target.classList.add('active');
+            
+            // Actualizar título
+            const titles = {
+                'tablero': '<i class="fas fa-tachometer-alt me-3"></i>TABLERO',
+                'atletas': '<i class="fas fa-users me-3"></i>GESTIÓN DE ATLETAS',
+                'entrenamientos': '<i class="fas fa-dumbbell me-3"></i>ENTRENAMIENTOS',
+                'competencias': '<i class="fas fa-trophy me-3"></i>COMPETENCIAS',
+                'rendimiento': '<i class="fas fa-chart-line me-3"></i>REPORTES - RENDIMIENTO',
+                'asistencia': '<i class="fas fa-calendar-check me-3"></i>REPORTES - ASISTENCIA',
+                'usuarios': '<i class="fas fa-user-cog me-3"></i>CONFIGURACIÓN - USUARIOS',
+                'sistema': '<i class="fas fa-server me-3"></i>CONFIGURACIÓN - SISTEMA'
+            };
+            
+            document.getElementById('section-title').innerHTML = titles[section] || titles['tablero'];
+        }
+
+        function toggleSubmenu(submenuId) {
+            const submenu = document.getElementById(submenuId + '-submenu');
+            const icon = document.getElementById(submenuId + '-icon');
+            
+            if (submenu.classList.contains('show')) {
+                submenu.classList.remove('show');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Cerrar otros submenus
+                document.querySelectorAll('.submenu').forEach(sub => {
+                    sub.classList.remove('show');
+                });
+                document.querySelectorAll('.toggle-icon').forEach(ic => {
+                    ic.style.transform = 'rotate(0deg)';
+                });
+                
+                submenu.classList.add('show');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+    </script>
 </body>
 </html>
